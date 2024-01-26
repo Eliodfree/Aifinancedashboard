@@ -10,3 +10,4 @@ export const api=createApi({
         })
     })
 }) 
+export const {useGetKpisQuery}=api;
