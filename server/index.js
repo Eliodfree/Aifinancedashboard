@@ -6,6 +6,8 @@ import dotenv from "dotenv"
 import helmet from "helmet"
 import mongoose from "mongoose"
 import { transanctionroute } from "./routes/transaction.js"
+import transactions from "./models/transactions.js"
+import { kpis } from "./data/data.js"
 
 //configurations
 dotenv.config();
@@ -20,20 +22,14 @@ app.use(bodyParser.urlencoded({extended:false}))
 
 const PORT = process.env.PORT || 8000;
 
+app.use("/transaction",transanctionroute)
 
-app.use("/transacion",transanctionroute)
-
-mongoose
-  .connect(process.env.MONGODB_URL, {
-    useNewUrlParser: true,
-  })
-  .then(() => {
-    app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
-  })
-  .catch((error) => {
-    console.error('MongoDB connection error:', error);
-    process.exit(1); // Exit the application on connection error
-  });
+mongoose.connect(process.env.MONGODB_URL, { useNewUrlParser: true,})
+.then(() => {
+  app.listen(PORT, () => console.log(`Server Port: ${PORT}`))
+  // transactions.insertMany(kpis)
+})
+.catch((error) => {  console.error('MongoDB connection error:', error);  process.exit(1); });
 
 // Global error handler
 app.use((err, req, res, next) => {
