@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({extended:false}))
 
 const PORT = process.env.PORT || 8000;
 
-app.use("/transaction",transanctionroute)
+app.use("/transactions",transanctionroute)
 
 mongoose.connect(process.env.MONGODB_URL, { useNewUrlParser: true,})
 .then(() => {
