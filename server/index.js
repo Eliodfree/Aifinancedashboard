@@ -26,8 +26,9 @@ app.use("/transactions",transanctionroute)
 
 mongoose.connect(process.env.MONGODB_URL, { useNewUrlParser: true,})
 .then(() => {
-  app.listen(PORT, () => console.log(`Server Port: ${PORT}`))
   // transactions.insertMany(kpis)
+  app.listen(PORT, () => console.log(`Server Port: ${PORT}`))
+  
 })
 .catch((error) => {  console.error('MongoDB connection error:', error);  process.exit(1); });
 

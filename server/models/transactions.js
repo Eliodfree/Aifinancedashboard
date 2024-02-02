@@ -22,7 +22,7 @@ const monthSchema=new Schema({
         Currency:"USD",
         get:(v)=>v/100
     },
-    nonoperationalExpenses:{
+    nonOperationalExpenses:{
         type:mongoose.Types.Currency,
         Currency:"USD",
         get:(v)=>v/100
