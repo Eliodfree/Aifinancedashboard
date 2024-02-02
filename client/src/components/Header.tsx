@@ -14,7 +14,8 @@ const Header = ({icon,title,subtitle,sidetitle}: Props) => {
 
   return (
     <FlexBetween color={palette.grey[400]} margin="1.5rem 1rem 0 1rem" >
-    <FlexBetween>
+      {/* firstelement */}
+      <FlexBetween>
     {icon}
     <Box width="100%">
     <Typography variant="h4" mb="-0.1rem">
@@ -24,10 +25,13 @@ const Header = ({icon,title,subtitle,sidetitle}: Props) => {
        {subtitle}
     </Typography>
     </Box>
-   </FlexBetween>
-   <FlexBetween>
-   <Typography  variant="h4" color={palette.secondary[400]}>{sidetitle}</Typography>
-   </FlexBetween>
+     </FlexBetween>
+     
+     {/* secondelement */}
+     <FlexBetween>
+     <Typography  variant="h4" color={palette.secondary[400]}>{sidetitle}</Typography>
+     </FlexBetween>
+
     </FlexBetween>
   )
 }
